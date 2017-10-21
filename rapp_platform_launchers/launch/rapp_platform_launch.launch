@@ -1,6 +1,6 @@
 <launch>
   <include file="$(find rapp_mysql_wrapper)/launch/mysql_wrapper.launch" />
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
-  <include file="$(find rapp_text_to_speech_espeak)/launch/text_to_speech_espeak.launch" />
+  <include file="$(find rapp_aiui_tts)/launch/text_to_speech.launch" />
   <include file="$(find rapp_application_authentication_manager)/launch/application_authentication.launch" />
 </launch>
