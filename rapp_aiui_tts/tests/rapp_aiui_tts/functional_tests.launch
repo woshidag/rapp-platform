@@ -1,0 +1,7 @@
+<launch> 
+   <node name="rapp_aiui_tts_node" pkg="rapp_aiui_tts" type="text_to_speech_espeak.py" output="screen"/>
+  <rosparam file="$(find rapp_aiui_tts)/cfg/rapp_aiui_tts_params.yaml" 
+    command="load" />
+  <test time-limit="100" test-name="text_to_speech_espeak_functional" pkg="rapp_aiui_tts" type="functional_tests.py" /> 
+ </launch> 
+ 

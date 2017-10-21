@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rapp_aiui_tts</name>
+  <version>0.0.1</version>
+  <description>The auxiliary rapp_aiui_tts package</description>
+
+  <maintainer email="woshidag@yeah.net">yujikang</maintainer>
+
+  <license>APACHE 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>rapp_platform_ros_communications</depend>
+
+</package>
