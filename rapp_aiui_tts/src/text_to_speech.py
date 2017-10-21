@@ -40,7 +40,7 @@ class TextToSpeech:
     self.serv = rospy.Service(self.serv_topic, \
         TextToSpeechSrv, self.text_to_speech_callback)
 
-    self.aiui_tts = rospy.Publisher('tts', String, 1)
+    self.aiui_tts = rospy.Publisher('tts', String, queue_size=1)
 
   # The service callback
   def text_to_speech_callback(self, req):
