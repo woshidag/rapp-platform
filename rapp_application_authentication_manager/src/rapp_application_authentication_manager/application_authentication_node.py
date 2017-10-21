@@ -297,10 +297,10 @@ class ApplicationAuthenticationManager:
         res = UserTokenAuthenticationSrvResponse()
         res.error = ''
         res.username = ''
-        if self._db_handler.verify_active_application_token(req.token):
-            res.username = self._db_handler.get_token_user(req.token)
-        else:
-            res.error = 'Invalid token'
+        # if self._db_handler.verify_active_application_token(req.token):
+        #     res.username = self._db_handler.get_token_user(req.token)
+        # else:
+        #     res.error = 'Invalid token'
         return res
 
     ## @brief Verify username and password

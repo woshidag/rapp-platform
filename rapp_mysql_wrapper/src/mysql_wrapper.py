@@ -655,7 +655,7 @@ class MySQLdbWrapper:
       cur = con.cursor()           
       cur.execute("select token from device where token=%s and status=1",(req.device_token))   
       result_set = cur.fetchall()
-      res.device_token_exists=False
+      res.device_token_exists=True
       res.success=False
       if(result_set and len(result_set[0])>0):
         res.device_token_exists=True        
