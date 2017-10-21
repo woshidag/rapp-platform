@@ -31,24 +31,9 @@
 
 var path = require('path');
 
-var INCLUDE_DIR = ENV.PATHS.INCLUDE_DIR;
-
-var Fs = require( path.join(INCLUDE_DIR, 'common', 'fileUtils.js') );
-
-var RandStringGen = require ( path.join(INCLUDE_DIR, 'common',
-    'randStringGen.js') );
-
-var fs = require('fs');
-
 var interfaces = require( path.join(__dirname, 'iface_obj.js') );
 
-const rosSrvName = "/rapp/rapp_text_to_speech_espeak/text_to_speech_topic";
-const audioOutFormat = "wav";
-const audioOutPath = ENV.PATHS.SERVICES_CACHE_DIR;
-const basenamePrefix = "tts_";
-
-var randStrGen = new RandStringGen(5);
-
+const rosSrvName = "/rapp/rapp_aiui_tts/text_to_speech_topic";
 
 
 /**
@@ -59,33 +44,20 @@ var randStrGen = new RandStringGen(5);
  *
  */
 function svcImpl(req, resp, ros) {
-  // Assign a unique identification key for this service request.
-  const unqCallId = randStrGen.createUnique();
-
-  // Rename file. Add uniqueId value
-  const filePath = path.join(audioOutPath,
-    basenamePrefix + unqCallId + '.' + audioOutFormat);
 
   var rosMsg = new interfaces.ros_req();
-  rosMsg.audio_output = filePath;
-  rosMsg.language = req.body.language;
   rosMsg.text = req.body.text;
 
   // ROS-Service response callback.
   function callback(data) {
-    // Remove this call id from random string generator cache.
-    randStrGen.removeCached(unqCallId);
     // Parse rosbridge message and craft client response
-    var response = parseRosbridgeMsg(data, filePath);
+    var response = parseRosbridgeMsg(data);
     resp.sendJson(response);
   }
 
   // ROS-Service onerror callback.
   function onerror(e) {
     // Remove local file immediately.
-    Fs.rmFile(filePath);
-    // Remove this call id from random string generator cache.
-    randStrGen.removeCached(unqCallId);
     var response = new interfaces.client_res();
     response.error = e;
     resp.sendJson(response);
@@ -100,24 +72,13 @@ function svcImpl(req, resp, ros) {
  *  Craft response object.
  *
  */
-function parseRosbridgeMsg(rosbridge_msg, audioFilePath) {
+function parseRosbridgeMsg(rosbridge_msg) {
   const error = rosbridge_msg.error;
-  const audioFile  = Fs.readFileSync(audioFilePath);
-
   var response = new interfaces.client_res();
 
   if (error) {
     response.error = error;
     return response;
-  }
-
-
-  if (audioFile) {
-    response.payload = audioFile.data.toString('base64');
-    response.basename = audioFile.basename;
-    response.encoding = 'base64';
-    // Remove local file immediately.
-    Fs.rmFile(audioFilePath);
   }
 
   return response;

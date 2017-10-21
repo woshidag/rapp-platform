@@ -21,9 +21,6 @@
 
 var client_res = function( faces, error ){
   var obj = {
-    payload: '',
-    encoding: '',
-    basename: '',
     error: ''
   };
   return obj;
@@ -33,7 +30,6 @@ var client_res = function( faces, error ){
 var client_req = function( ){
   var obj = {
     text: '',
-    language: ''
   };
   return obj;
 };
@@ -41,8 +37,6 @@ var client_req = function( ){
 
 var ros_req = function( ){
   var obj = {
-    audio_output: '',
-    language: '',
     text: ''
   };
   return obj;
