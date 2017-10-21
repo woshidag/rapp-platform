@@ -97,7 +97,7 @@ logger.prototype.info = function( msg ){
     this.logger_.log("info", "[%s] %s", this.ns, msg);
   }
   else{
-    this.logger_.log("info", "[%s] ", this.ns, msg);
+    // this.logger_.log("info", "[%s] ", this.ns, msg);
   }
 };
 
@@ -106,7 +106,7 @@ logger.prototype.log = function( msg ){
     this.logger_.log("debug", "[%s] %s", this.ns, msg);
   }
   else{
-    this.logger_.log("debug", "[%s] ", this.ns, msg);
+    // this.logger_.log("debug", "[%s] ", this.ns, msg);
   }
 };
 
@@ -115,7 +115,7 @@ logger.prototype.warn = function( msg ){
     this.logger_.log("warn", "[%s] %s", this.ns, msg);
   }
   else{
-    this.logger_.log("warn", "[%s] ", this.ns, msg);
+    // this.logger_.log("warn", "[%s] ", this.ns, msg);
   }
 };
 
@@ -124,7 +124,7 @@ logger.prototype.error = function( msg ){
     this.logger_.log("error", "[%s] %s", this.ns, msg);
   }
   else{
-    this.logger_.log("error", "[%s] ", this.ns, msg);
+    // this.logger_.log("error", "[%s] ", this.ns, msg);
   }
 };
 
