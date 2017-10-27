@@ -33,7 +33,7 @@ var path = require('path');
 
 var interfaces = require( path.join(__dirname, 'iface_obj.js') );
 
-const rosSrvName = "/add_pose";
+// const rosSrvName = "/add_pose";
 
 
 /**
@@ -46,9 +46,10 @@ const rosSrvName = "/add_pose";
 function svcImpl(req, resp, ros) {
 
   var rosMsg = new interfaces.ros_req();
-  console.log(req.body)
+  // console.log(req.body)
   // rosMsg.name = req.body.name;
-  rosMsg.pose = req.body.pose;
+  rosMsg = JSON.parse(req.body.data);
+  rosSrvName = req.body.service;
   // ROS-Service response callback.
   function callback(data) {
     // Parse rosbridge message and craft client response
@@ -76,6 +77,8 @@ function svcImpl(req, resp, ros) {
 function parseRosbridgeMsg(rosbridge_msg) {
   const error = rosbridge_msg.error;
   var response = new interfaces.client_res();
+
+  response = rosbridge_msg;
 
   if (error) {
     response.error = error;
