@@ -61,7 +61,14 @@
     "services": [
       "get_pose"
     ]
-  },  
+  },
+  "add_pose": {
+    "launch": true,
+    "path": "workers/add_pose.js",
+    "services": [
+      "add_pose"
+    ]
+  },
   "audio_processing": {
     "launch": true,
     "path": "workers/audio_processing.js",

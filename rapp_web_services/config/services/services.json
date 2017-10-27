@@ -59,5 +59,15 @@
     "authentication": true,
     "ros_connection": true,
     "timeout": 45000
+  },
+  "add_pose": {
+    "launch": true,
+    "anonymous": false,
+    "name": "add_pose",
+    "url_name": "add_pose",
+    "namespace": "",
+    "authentication": true,
+    "ros_connection": true,
+    "timeout": 45000
   }
 }
