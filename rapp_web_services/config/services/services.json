@@ -49,5 +49,15 @@
     "authentication": true,
     "ros_connection": false,
     "timeout": 45000
+  },
+  "get_pose": {
+    "launch": true,
+    "anonymous": false,
+    "name": "get_pose",
+    "url_name": "get_pose",
+    "namespace": "",
+    "authentication": true,
+    "ros_connection": true,
+    "timeout": 45000
   }
 }

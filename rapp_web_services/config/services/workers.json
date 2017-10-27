@@ -55,6 +55,13 @@
       "text_to_speech"
     ]
   },
+  "get_pose": {
+    "launch": true,
+    "path": "workers/get_pose.js",
+    "services": [
+      "get_pose"
+    ]
+  },  
   "audio_processing": {
     "launch": true,
     "path": "workers/audio_processing.js",
