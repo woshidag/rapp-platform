@@ -76,9 +76,9 @@ function parseRosbridgeMsg(rosbridge_msg) {
   const error = rosbridge_msg.error;
   var response = new interfaces.client_res();
 
-  response.x = rosbridge_msg.x;
-  response.y = rosbridge_msg.y;
-  response.yaw = rosbridge_msg.yaw;
+  response.x = rosbridge_msg.pose.x;
+  response.y = rosbridge_msg.pose.y;
+  response.yaw = rosbridge_msg.pose.yaw;
 
   if (error) {
     response.error = error;
