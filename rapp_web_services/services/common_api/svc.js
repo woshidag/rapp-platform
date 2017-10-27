@@ -4,6 +4,7 @@ an easy impl for http to call services in ros
 function svcImpl(req, resp, ros) {
 
   var rosMsg = JSON.parse(req.body.data);
+  console.log(req.body);
   rosSrvName = req.body.service;
   // ROS-Service response callback.
   function callback(data) {

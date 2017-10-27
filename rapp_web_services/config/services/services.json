@@ -50,11 +50,11 @@
     "ros_connection": false,
     "timeout": 45000
   },
-  "common": {
+  "common_api": {
     "launch": true,
     "anonymous": false,
-    "name": "common",
-    "url_name": "common",
+    "name": "common_api",
+    "url_name": "common_api",
     "namespace": "",
     "authentication": true,
     "ros_connection": true,

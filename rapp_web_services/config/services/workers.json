@@ -55,11 +55,11 @@
       "text_to_speech"
     ]
   },
-  "common": {
+  "common_api": {
     "launch": true,
-    "path": "workers/common.js",
+    "path": "workers/common_api.js",
     "services": [
-      "common"
+      "common_api"
     ]
   },
   "audio_processing": {
